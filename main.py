@@ -1,5 +1,3 @@
-pip install torch --upgrade
-
 from ultralytics import YOLO
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
