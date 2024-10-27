@@ -1,5 +1,5 @@
-# [(https://github.com/tasya1509/RBLKomcer)](https://rblkomcer-immxsacfjbrb62h46dgrpm.streamlit.app/)
-Tugas Besar Komputasi Cerdas
+# Tugas Besar Komputasi Cerdas
+[(https://github.com/tasya1509/RBLKomcer)](https://rblkomcer-immxsacfjbrb62h46dgrpm.streamlit.app/)
 
 # Parking Car Detection System
 This project is a Parking Car Detection System that uses YOLO (You Only Look Once) model to detect cars in a parking lot image. It is designed to be deployed for monitoring the number of cars parked at the ITERA campus parking area. The system runs on Python and utilizes the YOLOv8 model for object detection.
