@@ -1,11 +1,6 @@
 streamlit
-streamlit_option_menu
-ultralytics 
-YOLO
-matplotlib.pyplot
-plt
-matplotlib.patches
-ultralytics 
-PIL 
-numpy 
-asarray
+streamlit-option-menu
+ultralytics
+matplotlib
+Pillow
+numpy
