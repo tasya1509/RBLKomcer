@@ -33,7 +33,11 @@ if selected == "Home":
     image2 = Image.open("logo.jpg")
     st.image(image2)
     st.caption("Created by *Anatasya and Shalaesya Ariffani Fabillah*")
-
+    st.markdown(
+    """
+    - [Source Code](https://github.com/tasya1509/RBLKomcer)
+    """
+    )
 if selected == "References":
   
     st.markdown(
@@ -66,6 +70,7 @@ if selected == "References":
     - [BytesIO](https://docs.python.org/3/library/io.html)
     """
     )
+
 
 if selected == "Aplication":
     
