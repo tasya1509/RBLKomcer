@@ -45,13 +45,14 @@ if selected == "References":
     **The YOLO (You Only Look Once) YOLOv8n**.
     """
     )
-        image1 = Image.open('yolo.jpg')
-        image1.thumbnail((800, 800))
-        st.image(image1, caption='YOLOv8n Architecture')
-
-        image3 = Image.open('model yolo,png')
-        image3.thumbnail((800, 800))
-        st.image(image3, caption='YOLOv8n Model')
+    
+    image1 = Image.open('yolo.jpg')
+    image1.thumbnail((800,800))
+    image3 = Image.open('model yolo.png')
+    image3.thumbnail((800,800))
+    st.image(image1)
+    st.image(image3)
+    
         
     st.markdown(
     """
