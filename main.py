@@ -39,7 +39,8 @@ if selected == "Home":
     """
     )
 if selected == "References":
-     st.write("# DECARTERA ")
+    
+    st.write("# DECARTERA ")
     st.write(
     """
     **The YOLO (You Only Look Once) YOLOv8n**.
