@@ -43,10 +43,13 @@ if selected == "References":
     st.write(
     """
     **The YOLO (You Only Look Once) YOLOv8n**.
-    Computer vision, a branch of artificial intelligence, empowers machines to interpret and analyze visual data, enabling applications like facial recognition and autonomous driving. A significant advancement in this field is the YOLO (You Only Look Once) model, which transformed object detection by simultaneously predicting classifications and bounding boxes in a single neural network pass, enhancing speed and real-time detection capabilities. The latest iteration, YOLOv8 from Ultralytics, leverages advanced machine learning techniques to further improve accuracy and efficiency, while its open-source nature promotes widespread adoption and ongoing development. As a result, YOLO has become a fundamental tool in computer vision, facilitating effective object detection, instance segmentation, and classification across various projects.
     """
     )
-    
+    st.write ( 
+    """
+    Computer vision, a branch of artificial intelligence, empowers machines to interpret and analyze visual data, enabling applications like facial recognition and autonomous driving. A significant advancement in this field is the YOLO (You Only Look Once) model, which transformed object detection by simultaneously predicting classifications and bounding boxes in a single neural network pass, enhancing speed and real-time detection capabilities. The latest iteration, YOLOv8 from Ultralytics, leverages advanced machine learning techniques to further improve accuracy and efficiency, while its open-source nature promotes widespread adoption and ongoing development. As a result, YOLO has become a fundamental tool in computer vision, facilitating effective object detection, instance segmentation, and classification across various projects.
+     """
+    )
     image1 = Image.open('yolo.jpg')
     image1.thumbnail((800,800))
     image3 = Image.open('yolo model.jpg')
