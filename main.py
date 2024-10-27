@@ -45,13 +45,13 @@ if selected == "References":
     **The YOLO (You Only Look Once) YOLOv8n**.
     """
     )
-
     image1 = Image.open('YOLOv8n-architecture.jpg')
     image1.thumbnail((800,800))
     image3 = Image.open('YOLOv8n-model.jpg')
     image3.thumbnail((800,800))
     st.image(image1)
-    st.image(image3) 
+    st.image(image3)
+
     st.markdown(
     """
     - [Streamlit](https://docs.streamlit.io/)
