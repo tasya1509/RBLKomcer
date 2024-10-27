@@ -45,9 +45,6 @@ if selected == "References":
     **The YOLO (You Only Look Once) YOLOv8n**.
     """
     )
-
-    try:
-        # Mengimpor gambar
         image1 = Image.open('YOLOv8n-architecture.jpg')
         image1.thumbnail((800, 800))
         st.image(image1, caption='YOLOv8n Architecture')
@@ -92,7 +89,7 @@ if selected == "Aplication":
     
     uploaded_file = st.file_uploader("", type=["jpg",'jpeg','png'])
     if uploaded_file is None:
-      st.text("Please upload an Image (jpg format)")
+      st.text("Please upload an Image (jpg, jpeg, png)")
     else:
       image = Image.open(uploaded_file)
       results = detector(image)
