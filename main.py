@@ -48,7 +48,7 @@ if selected == "References":
     
     image1 = Image.open('yolo.jpg')
     image1.thumbnail((800,800))
-    image3 = Image.open('model yolo.png')
+    image3 = Image.open('yolo model.jpg')
     image3.thumbnail((800,800))
     st.image(image1)
     st.image(image3)
