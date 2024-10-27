@@ -1,0 +1,6 @@
+# Instal PyTorch
+pip install torch
+# Instal YOLOv8 melalui ultralytics
+pip install ultralytics
+# Instal OpenCV 
+pip install opencv-python
