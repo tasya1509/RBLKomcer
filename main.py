@@ -1,72 +1,87 @@
+import streamlit as st
+from streamlit_option_menu import option_menu
 from ultralytics import YOLO
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
 from ultralytics import settings
-from PIL import Image
+from PIL import Image, ImageDraw
 from numpy import asarray
+# from ultralytics import YOLO
+# import matplotlib.pyplot as plt
+# from io import BytesIO
+# from PIL import Image
+# import time
 
 
-
-# Load the image
-dir = "mobil1.jpg"
-image = Image.open(dir)
-image = image.convert('RGB')
-# plt.axis('off')
-# plt.imshow(image)
-# Load YOLO model
 detector = YOLO('yolov8n.pt')
-# Run object detection on the image
-results = detector(dir)
-# Function to draw boxes only for cars
-def draw_yolo_boxes_for_cars(result_list):
-    # Load the image
-    data = plt.imread(dir)  # Directly using 'a.jpg' as the filename
 
-    # Plot the image
-    plt.imshow(data)
+st.set_page_config(
+    page_title="DECARTERA",
+)
 
-    # Get the context for drawing boxes
-    ax = plt.gca()
+with st.sidebar:
+   selected = option_menu(
+        menu_title="Main Menu",  
+        options=["Home","References","Aplication"], 
+        icons=["house", "record-circle"],  
+        menu_icon="cast",  # optional
+        default_index=0,  # optional         
+)
 
-    # Initialize object count
-    car_count = 0
+if selected == "Home":
 
-    # Plot each detection result
-    for result in result_list:
-        # YOLO returns a boxes attribute which contains all bounding boxes and their labels
-        for box in result.boxes:
-            # Get the label index for the detected object
-            label_index = int(box.cls[0])
+    image2 = Image.open("logo.jpg")
+    st.image(image2)
+    st.caption("Created by *Anatasya and Shalaesya Ariffani Fabillah*")
 
-            # Convert the label index to its string representation (e.g., "car", "bus", etc.)
-            label = detector.model.names[label_index]
+if selected == "References":
+  
+    st.markdown(
+    """
+    - [Streamlit](https://docs.streamlit.io/)
+    """
+    )
+    st.markdown(
+    """
+    - [Ultralytics](https://pypi.org/project/ultralytics/)
+    """
+    )
+    st.markdown(
+    """
+    - [YOLOv5s](https://docs.ultralytics.com/yolov5/quickstart_tutorial/#inference-with-pytorch-hub)
+    """
+    )
+    st.markdown(
+    """
+    - [Matplotlib](https://matplotlib.org/stable/api/index)
+    """
+    )
+    st.markdown(
+    """
+    - [Pillow](https://pillow.readthedocs.io/en/stable/)
+    """
+    )
+    st.markdown(
+    """
+    - [BytesIO](https://docs.python.org/3/library/io.html)
+    """
+    )
 
-            # Check if the detected object is a car
-            if label == 'car':
-                # Get bounding box coordinates (x1, y1, x2, y2)
-                x1, y1, x2, y2 = box.xyxy[0]
-
-                # Calculate width and height
-                width = x2 - x1
-                height = y2 - y1
-
-                # Create a rectangle for the bounding box
-                rect = plt.Rectangle((x1, y1), width, height, fill=False, color='yellow')
-
-                # Draw the bounding box
-                ax.add_patch(rect)
-
-                # Increment the car count
-                car_count += 1
-
-    # Show the plot
-    plt.show()
-
-    # Return the total number of detected cars
-    return car_count
-
-# # Call the function to draw boxes for cars
-car_count = draw_yolo_boxes_for_cars(results)
-
-# # Print the total number of cars detected
-print(f"Total number of cars detected:{car_count}")
+if selected == "Aplication":
+    
+    uploaded_file = st.file_uploader("", type=["jpg",'jpeg','png'])
+    if uploaded_file is None:
+      st.text("Please upload an Image (jpg format)")
+    else:
+      image = Image.open(uploaded_file)
+      results = detector(image)
+      car_detections = [det for det in results[0].boxes if det.cls == 2]
+      image_with_boxes = image.copy()
+      draw = ImageDraw.Draw(image_with_boxes)
+      for det in car_detections:
+        x1, y1, x2, y2 = det.xyxy[0].tolist()
+        confidence = float(det.conf)  # Convert tensor to float
+        draw.rectangle([x1, y1, x2, y2], outline="red", width=3)
+        draw.text((x1, y1 - 10), f"Car {confidence:.2f}", fill="red")
+      st.image(image_with_boxes, caption="Detected Cars", use_column_width=True)
+      st.header(f"Number of cars detected: {len(car_detections)}")
