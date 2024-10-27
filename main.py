@@ -22,7 +22,7 @@ st.set_page_config(
 with st.sidebar:
    selected = option_menu(
         menu_title="Main Menu",  
-        options=["Home","References","Aplication"], 
+        options=["Home","References","Application"], 
         icons=["house", "record-circle"],  
         menu_icon="cast",  # optional
         default_index=0,  # optional         
