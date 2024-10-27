@@ -85,11 +85,11 @@ if selected == "References":
     )
 
 
-if selected == "Aplication":
+if selected == "Application":
     
     uploaded_file = st.file_uploader("", type=["jpg",'jpeg','png'])
     if uploaded_file is None:
-      st.text("Please upload an Image (jpg, jpeg, png)")
+      st.text("Please upload an Image (jpg or jpeg or png)")
     else:
       image = Image.open(uploaded_file)
       results = detector(image)
